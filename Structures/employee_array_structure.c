@@ -9,18 +9,24 @@ struct Employee {
 };
 
 int main() {
-    struct Employee emp[100];  /* maximum 100 jon employee */
+    struct Employee emp[100];  /* maximum 100 employees */
     int n, i;
 
-    printf("Koto jon employee? ");
-    scanf("%d", &n);
+    printf("How many employees? ");
+    if (scanf("%d", &n) != 1 || n < 1 || n > 100) {
+        printf("Invalid number (1-100 allowed).\n");
+        return 1;
+    }
 
-    /* Input nawa */
+    /* Taking Input */
     for (i = 0; i < n; i++) {
         printf("\nEmployee %d:\n", i + 1);
 
         printf("ID: ");
-        scanf("%d", &emp[i].id);
+        if (scanf("%d", &emp[i].id) != 1) {
+            printf("Invalid ID.\n");
+            return 1;
+        }
 
         printf("Name: ");
         scanf(" %49[^\n]", emp[i].name);
@@ -29,10 +35,13 @@ int main() {
         scanf(" %29[^\n]", emp[i].dept);
 
         printf("Salary: ");
-        scanf("%f", &emp[i].salary);
+        if (scanf("%f", &emp[i].salary) != 1) {
+            printf("Invalid salary.\n");
+            return 1;
+        }
     }
 
-    /* Output dekhano */
+    /* Output */
     printf("\n----- Employee List -----\n");
     printf("%-5s %-20s %-15s %10s\n", "ID", "Name", "Dept", "Salary");
 
