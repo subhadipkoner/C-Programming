@@ -46,7 +46,7 @@ int main() {
     printf("%-5s %-20s %-15s %10s\n", "ID", "Name", "Dept", "Salary");
 
     for (i = 0; i < n; i++) {
-        printf("%-5d %-20s %-15s %10.2f\n",
+        printf("%-5d %-20.20s %-15.15s %10.2f\n",
                emp[i].id, emp[i].name, emp[i].dept, emp[i].salary);
     }
 

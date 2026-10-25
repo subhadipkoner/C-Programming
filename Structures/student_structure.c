@@ -2,29 +2,41 @@
 
 /* Student structure declaration */
 struct Student {
-    char name[50];    /* student-er naam */
+    char name[50];    /* student name */
     int rollNo;       /* roll number */
-    char stream[30];  /* stream, jemon IT, CSE */
+    char stream[30];  /* stream, like IT, CSE */
     float marks;      /* marks */
 };
 
 int main() {
-    struct Student s;  /* s naam-e ekta Student variable */
+    struct Student s;  /* a Student variable named s */
 
-    /* Input nawa */
-    printf("Student-er naam likho: ");
-    scanf(" %49[^\n]", s.name);
+    /* Taking Input */
+    printf("Enter Student Name : ");
+    if (scanf(" %49[^\n]", s.name) != 1) {
+        printf("Invalid name.\n");
+        return 1;
+    }
 
-    printf("Roll number likho: ");
-    scanf("%d", &s.rollNo);
+    printf("Roll number : ");
+    if (scanf("%d", &s.rollNo) != 1) {
+        printf("Invalid roll number.\n");
+        return 1;
+    }
 
-    printf("Stream likho: ");
-    scanf(" %29[^\n]", s.stream);
+    printf("Stream : ");
+    if (scanf(" %29[^\n]", s.stream) != 1) {
+        printf("Invalid stream.\n");
+        return 1;
+    }
 
-    printf("Marks likho: ");
-    scanf("%f", &s.marks);
+    printf("Marks : ");
+    if (scanf("%f", &s.marks) != 1) {
+        printf("Invalid marks.\n");
+        return 1;
+    }
 
-    /* Output dekhano */
+    /* Output */
     printf("\n----- Student Details -----\n");
     printf("Name    : %s\n", s.name);
     printf("Roll No : %d\n", s.rollNo);
